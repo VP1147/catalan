@@ -22,7 +22,7 @@ int sigma(int x) {
 }
 
 int main() {
-    int n = 100000;
+    int n = 500000;
     double S = 0.0;
     int i;
     for (i = 1; i < n; i++) {

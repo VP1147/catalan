@@ -19,13 +19,15 @@ def iter(n):						# Itera sobre o numero x
 		n = s(n)
 		i+=1
 
-def IterList(n):						# Itera sobre o numero x
+def IterList(n, l):						# Itera sobre o numero x
 										# Retorna uma lista com as somas
 										# em funcao da iteracao.
 	X = []
 	Y = []
 	i = 0
-	while(n != 0):
+	lim = l								# lim = 0 : Itera sem limites
+
+	while(n != 0 and i <= lim or n != 0 and lim == 0):
 		print("[{:d}] : {:d}".format(i, n))
 		X.append(i)
 		Y.append(n)
@@ -34,11 +36,16 @@ def IterList(n):						# Itera sobre o numero x
 	return X, Y
 
 import matplotlib.pyplot as plt
-n = 494
-X, Y = IterList(n)
-fig = plt.figure()
+n = 600
+l = 0
+X, Y = IterList(n, l)
+fig, ax = plt.subplots()
 
-plt.plot(X, Y)
+ax.plot(X, Y)
+ax.set_title("$s^i(n)$, n = {:d}".format(n), fontsize=14)
+ax.set_xlabel("i", fontsize=12)
+ax.set_ylabel("$s^i(n)$", fontsize=12)
+
 plt.show()
 
 ## Anotacoes ##
@@ -49,6 +56,7 @@ plt.show()
 # 600: volta em 601
 # 1024: volta em 1023
 # 800: converge para 1153 em 1 iteracao
+# 2976: Descesce e depois aumenta "exponencialmente"
 
 #for i in range(1, 100):
 #	if iter(i) != 0: print("{:d} -> {:d}".format(i, iter(i)))

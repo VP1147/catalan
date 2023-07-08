@@ -1,3 +1,12 @@
+# Algorítmos, funções e notas acerca da pesquisa sobre 
+# a conjectura de Catalan-Dickson.
+
+# Aluno:		Vinícius A. Pavão - Instituto de Física - UFMS
+# Orientador: 	Elias T. Galante - Instituto de Matemática - UFMS
+
+# Código mantido sob licença GNU GPLv3 - ver LICENSE
+# Junho de 2023
+
 def s(x):
 	l = []
 	for i in range(1, int(x / 2) + 1):
@@ -36,7 +45,7 @@ def IterList(n, l):						# Itera sobre o numero x
 	return X, Y
 
 import matplotlib.pyplot as plt
-n = 600
+n = 2976
 l = 0
 X, Y = IterList(n, l)
 fig, ax = plt.subplots()

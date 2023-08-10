@@ -33,4 +33,4 @@ def Iter(n, i_lim):
 		t_i = t(t_i)
 		i += 1
 
-Iter(27, 125)
+Iter(1488, 35)

@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 
 // Função auxiliar para converter um número inteiro para uma string
 char* intToString(long num) {
@@ -67,16 +68,20 @@ long t(long x) {
 	return 2 * s(x) + x;
 }
 
-void Iter(long n, int i_lim) {
-	int i = 0; 						// Contador de iteracoes
+void Iter(long n, int i_lim, bool f) {
+	int i = 0; 						// Contador de iterações
 	long t_i = n;
 	printf("i 		t_i(%ld) 	Fatoração\n", n);
 	while (i <= i_lim) {
-		char* fatores = factors(t_i);
 		printf("%d 		%ld 		", i, t_i);
-		printf("	%s\n", fatores);
-		free(fatores);
-		t_i = t(t_i);
+		if(f == true) { 
+			char* fatores = factors(t_i);
+			printf("	%s\n", fatores); 
+			free(fatores);
+		} else {
+			printf("\n");
+		}
+		t_i = t(t_i);		// Executa a função t(n) para o novo valor
 		i++;
 	}
 }
@@ -86,6 +91,6 @@ int main() {
 	printf("t_0 = ");
 	long n; scanf("%ld", &n);
 	printf("\n");
-	Iter(n, lim);
+	Iter(n, lim, true);
 	return 0;
 }

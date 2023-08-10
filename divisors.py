@@ -35,18 +35,18 @@ def IterList(n, l):						# Itera sobre o numero x
 	Y = []
 	i = 0
 	lim = l								# lim = 0 : Itera sem limites
-
-	while(n != 0 and i <= lim or n != 0 and lim == 0):
-		print("[{:d}] : {:d}".format(i, n))
+	print("[{:d}] : {:d}".format(i, n))
+	while(n != 0 and i < lim or n != 0 and lim == 0):
 		X.append(i)
 		Y.append(n)
 		n = s(n)
 		i+=1
+		print("[{:d}] : {:d}".format(i, n))
 	return X, Y
 
 import matplotlib.pyplot as plt
-n = 2976
-l = 0
+n = 1488
+l = 35
 X, Y = IterList(n, l)
 fig, ax = plt.subplots()
 
